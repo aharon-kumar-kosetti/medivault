@@ -1,0 +1,1 @@
+This is a test medical document for MediVault E2E testing. It contains lab results.

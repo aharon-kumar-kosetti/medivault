@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-medical-blue: #0A2472;
+  --color-medical-teal: #00B4D8;
+  --color-medical-green: #2DC653;
+  --color-medical-amber: #F4A261;
+  --color-medical-red: #E63946;
+  --color-medical-bg: #F8FAFF;
+  --color-medical-card: #FFFFFF;
+
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-medical-bg text-slate-900 font-inter;
+  }
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+}

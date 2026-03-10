@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediVault — A Secure Digital Vault for Your Medical Records</title>
+  <meta name="description" content="Store, manage, and share your health records securely. Doctors get the right information when it matters most — especially in emergencies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================================================
+       NAVBAR
+       ==================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <!-- Left: Logo -->
+      <a href="#" class="nav-logo" aria-label="MediVault Home">
+        <img src="MEDIVAULT BG REMOVER.png" alt="MediVault Logo" class="nav-logo-img" />
+        <span class="nav-logo-text">MediVault</span>
+      </a>
+
+      <!-- Center: spacer (handled by flexbox) -->
+
+      <!-- Right: Nav Links + Buttons -->
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-right" id="navRight">
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#flow">How It Works</a></li>
+          <li><a href="#cta">About</a></li>
+        </ul>
+        <div class="nav-buttons">
+          <a href="#" class="btn btn-outline" id="loginBtn">Login</a>
+          <a href="#" class="btn btn-primary" id="registerBtn">Register</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====================================================
+       SECTION 1 — HERO / INTRO
+       ==================================================== -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+
+      <!-- Left: Text -->
+      <div class="hero-text" id="heroText">
+        <div class="hero-eyebrow">Healthcare, Reimagined</div>
+
+        <h1 class="hero-headline">
+          A Secure Digital Vault for Your Medical Records.
+        </h1>
+
+        <p class="hero-description">
+          Store, manage, and share your health records securely.
+          Doctors get the right information when it matters most — especially in emergencies.
+        </p>
+
+        <ul class="hero-value-list">
+          <li>
+            <span class="vp-icon">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v4c0 4 3.1 7.6 7 8.9C13.9 17.6 17 14 17 10V6L10 2z" stroke="#0077b6" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            Patient-controlled health records
+          </li>
+          <li>
+            <span class="vp-icon">
+              <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#0077b6" stroke-width="1.8"/><path d="M7 10l2 2 4-4" stroke="#0077b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Secure access for doctors and hospitals
+          </li>
+          <li>
+            <span class="vp-icon">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#0077b6" stroke-width="1.8"/><path d="M10 6v4l2.5 2" stroke="#0077b6" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            Emergency data access when life depends on it
+          </li>
+          <li>
+            <span class="vp-icon">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 5h12M4 10h12M4 15h8" stroke="#0077b6" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            Full transparency with audit logs
+          </li>
+        </ul>
+
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="#flow" class="btn btn-outline btn-lg js-smooth">See How It Works</a>
+        </div>
+      </div>
+
+      <!-- Right: Image Carousel -->
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide active">
+            <img
+              src="MEDIVAULT - 1.png"
+              alt="Doctor accessing digital health records"
+              loading="lazy"
+            />
+            <div class="slide-caption">Doctor accessing digital health records</div>
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="MEDIVAULT - 2.png"
+              alt="Patient managing reports on phone"
+              loading="lazy"
+            />
+            <div class="slide-caption">Patient managing reports on phone</div>
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="MEDIVAULT - 3.png"
+              alt="Emergency doctor scanning patient ID"
+              loading="lazy"
+            />
+            <div class="slide-caption">Emergency doctor scanning patient ID</div>
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="MEDIVAULT - 4.png"
+              alt="Secure medical database visualization"
+              loading="lazy"
+            />
+            <div class="slide-caption">Secure medical database visualization</div>
+          </div>
+        </div>
+
+        <!-- Carousel dots -->
+        <div class="carousel-dots" id="carouselDots">
+          <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="dot" data-index="2" aria-label="Slide 3"></button>
+          <button class="dot" data-index="3" aria-label="Slide 4"></button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 2 — FEATURES
+       ==================================================== -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Core Capabilities</span>
+        <h2>Everything MediVault Offers</h2>
+        <p>Medical-grade software built around people — patients, doctors, and hospitals alike.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-blue">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L5 9v7c0 6 4.7 11.5 11 13 6.3-1.5 11-7 11-13V9L16 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Patient Controlled Records</h3>
+          <p>Patients fully own and manage their medical history. Grant or revoke access to anyone, anytime.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-teal">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="5" stroke="currentColor" stroke-width="2"/><path d="M11 16l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Secure Medical Storage</h3>
+          <p>Encrypted digital vault for all health reports. AES-256 encryption ensures your data is always locked tight.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-red">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="2"/><path d="M16 10v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Emergency Access Protocol</h3>
+          <p>Doctors can access critical records instantly during emergencies — blood group, allergies, medications. 24-hour window, fully audited.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-blue">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 8V6a2 2 0 012-2h8a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/><path d="M16 14v4M14 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Hospital Integration</h3>
+          <p>Hospitals can upload reports directly into patient vaults. Seamless transfers between institutions with full consent workflows.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-teal">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M6 8h20M6 14h20M6 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Transparent Audit Logs</h3>
+          <p>Every record access is logged and visible to the patient. Immutable, tamper-proof — not even admins can delete entries.</p>
+        </div>
+
+        <div class="feature-card" data-aos>
+          <div class="fc-icon fc-purple">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M5 26c0-5 4.5-9 11-9s11 4 11 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Universal Medical Identity</h3>
+          <p>A single patient profile accessible across hospitals and clinics. One identity, all your records, everywhere you go.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 3 — USER FLOW
+       ==================================================== -->
+  <section class="section flow-section" id="flow">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How It Works</span>
+        <h2>Designed for Every Role</h2>
+        <p>MediVault adapts to how each person interacts with healthcare data — securely and transparently.</p>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="flow-tabs" id="flowTabs" role="tablist">
+        <button class="flow-tab active" data-role="patient" role="tab" aria-selected="true">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Patient
+        </button>
+        <button class="flow-tab" data-role="doctor" role="tab" aria-selected="false">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 13v4M8 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Doctor
+        </button>
+        <button class="flow-tab" data-role="hospital" role="tab" aria-selected="false">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="7" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 18V13h6v5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 4h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 2v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Hospital
+        </button>
+      </div>
+
+      <!-- Flow Panels -->
+      <div class="flow-panels">
+
+        <!-- Patient -->
+        <div class="flow-panel active" id="panel-patient" role="tabpanel">
+          <div class="flow-stepper">
+            <div class="flow-step">
+              <div class="step-bubble">1</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">📝</div>
+                <h4>Create Account</h4>
+                <p>Sign up and set up your secure MediVault profile.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">2</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">📤</div>
+                <h4>Upload Records</h4>
+                <p>Add your health records, lab reports, prescriptions, and documents.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">3</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">🔑</div>
+                <h4>Grant Doctor Access</h4>
+                <p>Give your doctor permission to view specific records.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">4</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">🚨</div>
+                <h4>Emergency Access Enabled</h4>
+                <p>Critical data is available to ER doctors if you're incapacitated.</p>
+              </div>
+            </div>
+            <div class="flow-step last">
+              <div class="step-bubble">5</div>
+              <div class="step-body">
+                <div class="step-icon">📋</div>
+                <h4>Monitor Audit Logs</h4>
+                <p>See exactly who accessed your records, when, and why.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Doctor -->
+        <div class="flow-panel" id="panel-doctor" role="tabpanel">
+          <div class="flow-stepper">
+            <div class="flow-step">
+              <div class="step-bubble">1</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">🔍</div>
+                <h4>Request Patient Access</h4>
+                <p>Send a secure request to view a patient's medical records.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">2</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">✅</div>
+                <h4>Receive Permission</h4>
+                <p>Patient grants access. Role-based permissions are enforced automatically.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">3</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">📂</div>
+                <h4>View Medical History</h4>
+                <p>Access the full record history, AI summaries, and past treatments.</p>
+              </div>
+            </div>
+            <div class="flow-step last">
+              <div class="step-bubble">4</div>
+              <div class="step-body">
+                <div class="step-icon">🩺</div>
+                <h4>Diagnose Confidently</h4>
+                <p>Make better decisions using complete, accurate medical context.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hospital -->
+        <div class="flow-panel" id="panel-hospital" role="tabpanel">
+          <div class="flow-stepper">
+            <div class="flow-step">
+              <div class="step-bubble">1</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">🏥</div>
+                <h4>Register Institution</h4>
+                <p>Onboard your hospital and verify your identity on the platform.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">2</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">📥</div>
+                <h4>Upload Patient Reports</h4>
+                <p>Directly add diagnostic reports into patient vaults after visits.</p>
+              </div>
+            </div>
+            <div class="flow-step">
+              <div class="step-bubble">3</div>
+              <div class="step-connector"></div>
+              <div class="step-body">
+                <div class="step-icon">🔒</div>
+                <h4>Securely Store Documents</h4>
+                <p>All documents are encrypted and stored in the patient's own vault.</p>
+              </div>
+            </div>
+            <div class="flow-step last">
+              <div class="step-bubble">4</div>
+              <div class="step-body">
+                <div class="step-icon">🔗</div>
+                <h4>Share with Authorized Doctors</h4>
+                <p>Affiliated doctors receive scoped access to relevant patient records only.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- ====================================================
+       SECTION 4 — CTA
+       ==================================================== -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Ready to Take Control of Your Medical Records?</h2>
+        <p>Join MediVault and experience what patient-first healthcare data management feels like.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-cta-primary">Get Started Free</a>
+          <a href="#" class="btn btn-cta-outline">Contact Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       FOOTER
+       ==================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="MEDIVAULT BG REMOVER.png" alt="MediVault Logo" class="footer-logo-img" />
+      </div>
+      <p class="footer-copy">MediVault &copy; 2026 — Secure Medical Records Platform</p>
+      <p class="footer-sub">Hackathon 2026 &middot; Built with care for patients everywhere</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
