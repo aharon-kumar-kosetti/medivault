@@ -426,7 +426,7 @@ export default function EmergencyAccess({ onViewDocument }) {
   const [endsAt, setEndsAt] = useState(null);
   const [error, setError] = useState('');
 
-  const API = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+  const API = import.meta.env.VITE_API_BASE_URL?.trim() || '';
 
   const initiateEmergency = async () => {
     setError('');
