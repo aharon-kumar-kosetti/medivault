@@ -110,28 +110,28 @@ npm install
 
 ### Environment Setup
 
-**Frontend** — create `.env`:
+Copy `.env.example` to `.env` and fill in the values:
+
 ```env
+# Frontend (Vite build-time)
 VITE_API_BASE_URL=http://localhost:3001
 VITE_ENABLE_MOCK_AUTH=false
-```
 
-**Backend** — create `.env.server`:
-```env
+# Database
 DATABASE_URL=your_postgres_url
 SESSION_SECRET=your_secret_key
 API_PORT=3001
 API_HOST=0.0.0.0
 ALLOWED_ORIGINS=http://localhost:5173
 
-# Appwrite
+# Appwrite (server-side)
+APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+APPWRITE_PROJECT_ID=your_project_id
 APPWRITE_API_KEY=your_appwrite_key
-VITE_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
-VITE_APPWRITE_PROJECT_ID=your_project_id
 APPWRITE_BUCKET_ID=medivault-documents
 
 # AI
-GEMINI_API_KEY=your_openrouter_key
+GEMINI_API_KEY=your_gemini_key
 ```
 
 ### Database Setup
@@ -161,7 +161,40 @@ npm run preview
 
 ---
 
-## 📐 Architecture
+## ☁️ Vercel Deployment
+
+MediVault is configured for full-stack deployment on Vercel. The frontend (Vite/React) is served as static files and the backend (Express API) runs as a single serverless function. Route rewrites in `vercel.json` transparently forward `/api/*`, `/auth/*`, and `/health` requests to the serverless function so no frontend environment variable changes are needed.
+
+### Steps
+
+1. **Push to GitHub** and import the repository in the [Vercel dashboard](https://vercel.com/new).
+
+2. **Set environment variables** in *Project Settings → Environment Variables*:
+
+   | Variable | Description |
+   |----------|-------------|
+   | `DATABASE_URL` | PostgreSQL connection string (e.g. [Neon](https://neon.tech/), [Supabase](https://supabase.com/)) |
+   | `SESSION_SECRET` | Any long random string for signing auth tokens |
+   | `APPWRITE_ENDPOINT` | Appwrite API endpoint (default: `https://cloud.appwrite.io/v1`) |
+   | `APPWRITE_PROJECT_ID` | Your Appwrite project ID |
+   | `APPWRITE_API_KEY` | Your Appwrite API key |
+   | `APPWRITE_BUCKET_ID` | Storage bucket name (default: `medivault-documents`) |
+   | `GEMINI_API_KEY` | Google Gemini API key for AI summaries |
+
+   > `VITE_API_BASE_URL` should be **left empty** (or omitted) so the frontend uses relative paths — the Vercel rewrites handle the routing automatically.
+
+3. **Deploy.** Vercel runs `npm run build` automatically, outputs `dist/`, and deploys `api/server.js` as a serverless function.
+
+### Notes
+
+- The project uses **PostgreSQL** — you must provision an external database. [Neon](https://neon.tech/) offers a free tier and works well with Vercel.
+- File uploads via Appwrite require the `APPWRITE_*` environment variables above.
+- `express-rate-limit` uses in-memory storage; rate limits reset on each cold start in serverless. For persistent rate limiting, configure a Redis-backed store.
+- Vercel serverless functions have a default request body size limit. The upload endpoint accepts up to 20 MB — consider using a dedicated upload service or Appwrite's direct client-side upload for large files.
+
+---
+
+
 
 > See full architecture diagram: [`public/docs/MediVault-Architecture.pdf`](public/docs/MediVault-Architecture.pdf)
 
