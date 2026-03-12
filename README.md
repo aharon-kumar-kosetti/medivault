@@ -110,24 +110,26 @@ npm install
 
 ### Environment Setup
 
-**Frontend** — create `.env`:
-```env
-VITE_API_BASE_URL=http://localhost:3001
-VITE_ENABLE_MOCK_AUTH=false
-```
+Create a single `.env` file in the project root (you can copy from `.env.example`).
 
-**Backend** — create `.env.server`:
 ```env
+# Frontend (Vite)
+# Keep empty to use relative paths (recommended for Vercel rewrites).
+VITE_API_BASE_URL=
+VITE_ENABLE_MOCK_AUTH=false
+
+# Backend (Node/Express)
 DATABASE_URL=your_postgres_url
 SESSION_SECRET=your_secret_key
 API_PORT=3001
 API_HOST=0.0.0.0
 ALLOWED_ORIGINS=http://localhost:5173
+NODE_ENV=development
 
 # Appwrite
+APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+APPWRITE_PROJECT_ID=your_project_id
 APPWRITE_API_KEY=your_appwrite_key
-VITE_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
-VITE_APPWRITE_PROJECT_ID=your_project_id
 APPWRITE_BUCKET_ID=medivault-documents
 
 # AI
@@ -158,6 +160,29 @@ npm run dev:api
 npm run build
 npm run preview
 ```
+
+### Vercel Deployment
+
+1. Push your repo to GitHub.
+2. Import the project in Vercel.
+3. Build settings are auto-read from `vercel.json`:
+  - Build command: `npm run build`
+  - Output directory: `dist`
+4. Add environment variables in Vercel Project Settings → Environment Variables:
+  - `DATABASE_URL`
+  - `SESSION_SECRET`
+  - `APPWRITE_ENDPOINT`
+  - `APPWRITE_PROJECT_ID`
+  - `APPWRITE_API_KEY`
+  - `APPWRITE_BUCKET_ID`
+  - `GEMINI_API_KEY`
+  - Optional: `ALLOWED_ORIGINS`
+5. Redeploy.
+
+Operational notes:
+- `/api/*`, `/auth/*`, and `/health` are rewritten to the Express serverless function in `api/server.js`.
+- The catch-all rewrite sends other routes to `index.html`, so React Router works on refresh/deep links.
+- Leave `VITE_API_BASE_URL` empty in production to use relative URLs through Vercel rewrites.
 
 ---
 
